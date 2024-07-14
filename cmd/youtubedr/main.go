@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/kkdai/youtube/v2"
 	"os"
 )
 
 func main() {
-	exitOnError(rootCmd.Execute())
+	vi, err := (&youtube.Client{}).GetVideo("8LMJiFnnI2I")
+	fmt.Println(vi, err)
+	//exitOnError(rootCmd.Execute())
 }
 
 func exitOnError(err error) {

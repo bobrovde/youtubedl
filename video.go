@@ -27,6 +27,9 @@ type Video struct {
 	DASHManifestURL string // URI of the DASH manifest file
 	HLSManifestURL  string // URI of the HLS manifest file
 	CaptionTracks   []CaptionTrack
+	IsLiveContent   bool
+	IsLive          bool
+	IsUpcoming      bool
 }
 
 const dateFormat = "2006-01-02"
@@ -101,6 +104,9 @@ func (v *Video) extractDataFromPlayerResponse(prData playerResponseData) error {
 	v.Author = prData.VideoDetails.Author
 	v.Thumbnails = prData.VideoDetails.Thumbnail.Thumbnails
 	v.ChannelID = prData.VideoDetails.ChannelID
+	v.IsLiveContent = prData.VideoDetails.IsLiveContent
+	v.IsLive = prData.VideoDetails.IsLive
+	v.IsUpcoming = prData.VideoDetails.IsUpcoming
 	v.CaptionTracks = prData.Captions.PlayerCaptionsTracklistRenderer.CaptionTracks
 
 	if views, _ := strconv.Atoi(prData.VideoDetails.ViewCount); views > 0 {

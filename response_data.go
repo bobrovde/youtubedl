@@ -54,6 +54,8 @@ type playerResponseData struct {
 		IsPrivate         bool    `json:"isPrivate"`
 		IsUnpluggedCorpus bool    `json:"isUnpluggedCorpus"`
 		IsLiveContent     bool    `json:"isLiveContent"`
+		IsLive            bool    `json:"isLive"`
+		IsUpcoming        bool    `json:"isUpcoming"`
 	} `json:"videoDetails"`
 	Microformat struct {
 		PlayerMicroformatRenderer struct {
